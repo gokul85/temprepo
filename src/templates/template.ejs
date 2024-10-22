@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+    .email-container {
+      max-width: 60%;
+      margin: 0 auto;
+      background-color: rgb(251, 248, 248);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
+    .header {
+      text-align: center;
+      padding: 20px 0;
+      /* display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      width: 100%; */
+    }
+    .head-content{
+        text-align: center;
+        font-size: 23px;
+        color: black;
+    }
+    .head-content b{
+        letter-spacing: 1px;
+    }
+    .header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      /* background-color: rgb(243, 248, 253);
+       */
+       background-color: white;
+      border-radius: 10px;
+    }
+    .footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #000;
+    }
+    .footer p {
+      margin: 10px 0 0 0;
+      color: #555;
+      font-size: 14px;
+    }
+    .social{
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <div class="header">
+      <img src="https://iquestpublicaccessfile.s3.ap-south-1.amazonaws.com/ilogo.jpeg" alt="logo"><br />
+      <br />
+      <div class="head-content">
+        <b>IGCSE Quest - Digital Quest platform</b>
+      </div>
+    </div>
+    <hr />
+    <div class="body-content">
+      <%- content %>
+    </div>
+    <div class="footer">
+      <p>Follow us</p><br />
+      <a href="#"><img src="https://iquestpublicaccessfile.s3.ap-south-1.amazonaws.com/facebook.png" alt="Facebook" class="social"></a>
+      <a href="#"><img src="https://iquestpublicaccessfile.s3.ap-south-1.amazonaws.com/linkedin.png" alt="LinkedIn" class="social"></a>
+      <!-- <a href="#"><img src="https://example.com/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="https://example.com/youtube.png" alt="YouTube"></a> -->
+      <a href="#"><img src="https://iquestpublicaccessfile.s3.ap-south-1.amazonaws.com/instagram.png" alt="Instagram" class="social"></a>
+      <br>
+      <!-- <a href="#"><img src="https://example.com/apple.png" alt="Apple"></a>
+      <a href="#"><img src="https://example.com/android.png" alt="Android"></a> -->
+      <p>
+        <a href="#">Privacy Policy</a> | 
+        <a href="#">Contact Support</a> | 
+        <a href="#">Unsubscribe</a>
+      </p>
+      <p>Anvil Learning Solutions, CWC Road, Gandhimaanagar, Peelamedu, Coimbatore -641004</p>
+      <p>© 2024 Iquest.com</p>
+      <p>Maintained by Netzwerk</p>
+    </div>
+  </div>
+</body>
+</html>

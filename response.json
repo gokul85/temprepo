@@ -1,0 +1,134 @@
+[
+  {
+    "api": "Coupen handler",
+    "endpoints": [
+      { "methods": "get", "url": "/admin/coupon" },
+      { "methods": "post", "url": "/admin/coupon/create" },
+      { "methods": "put", "url": "/admin/coupon/:id" },
+      { "methods": "delete", "url": "/admin/coupon/:id" }
+    ],
+    "response": [
+      {
+        "method": "get",
+        "response": [
+          {
+            "_id": "65c3b50bc958d05aa4fd7c4e",
+            "coupen_code": "coupey",
+            "valid_till": "2024-05-10T00:00:00.000Z",
+            "total_usage": 100,
+            "total_used": 0,
+            "discount_percentage": 40,
+            "limit_exceed": false,
+            "createdAt": "2024-02-07T16:51:23.365Z",
+            "updatedAt": "2024-02-07T16:51:23.365Z",
+            "__v": 0
+          },
+          {
+            "_id": "65c3afe834f21a5cc38c9ef1",
+            "coupen_code": "coupex",
+            "valid_till": "2024-05-10T00:00:00.000Z",
+            "total_usage": 100,
+            "total_used": 0,
+            "discount_percentage": 40,
+            "limit_exceed": false,
+            "createdAt": "2024-02-07T16:29:28.361Z",
+            "updatedAt": "2024-02-07T16:29:28.361Z",
+            "__v": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "api": "Transaction Details",
+    "endpoints": {
+      "method": "get",
+      "url": "/admin/transaction_details"
+    },
+    "response": {
+      "method": "get",
+      "response": [
+        {
+          "_id": "Transaction1ObjectId",
+          "userId": "60a1e1190f36c853b0e03ec6",
+          "username": "user1",
+          "receiptId": "123456789",
+          "razorpay_orderId": "RZP_123",
+          "amount": 100,
+          "Currency": "USD",
+          "email": "example1@example.com",
+          "contact": 1234567890,
+          "status": true,
+          "createdAt": "2024-02-07T12:00:00.000Z"
+        }
+      ]
+    }
+  },
+  {
+    "api": "Currency handler",
+    "endpoints": [
+      { "methods": "get", "url": "/admin/currency" },
+      { "methods": "post", "url": "/admin/currency/create" },
+      { "methods": "put", "url": "/admin/currency/:id" },
+      { "methods": "delete", "url": "/admin/currency/:id" }
+    ],
+    "response": [
+      {
+        "method": "get",
+        "response": [
+          {
+            "Currency_state" : "United States dollar",
+            "Currency": "USD",
+            "Currency_rate": 80
+          },
+          {
+            "Currency_state" : "New Zelanad dollar",
+            "Currency": "NZD",
+            "Currency_rate": 50
+          },
+          {
+            "Currency_state" : "United States dollar",
+            "Currency": "USD",
+            "Currency_rate": 90
+          },
+          {
+            "Currency_state" : "United States dollar",
+            "Currency": "USD",
+            "Currency_rate": 80
+          }
+        ]
+      }
+    ]
+  },  {
+    "api": "Subscription plan handler",
+    "endpoints": [
+      { "methods": "get", "url": "/admin/plan/" },
+      { "methods": "post", "url": "/admin/plan/create" },
+      { "methods": "put", "url": "/admin/plan/:id" },
+      { "methods": "delete", "url": "/admin/plan/:id" }
+    ],
+    "response": [
+      {
+        "method": "get",
+        "response": [
+          {
+            "_id": "65c46d69734e6720ff34ee0d",
+            "plan_title": "Monthly pass",
+            "plan_description": "Be like a pro",
+            "plan_price": 900,
+            "plan_duration_text": "3 months",
+            "plan_duration_number": 90,
+            "plan_access_features": [
+                "Unlimited questions",
+                "view all answers"
+            ],
+            "plan_badge": false,
+            "createdAt": "2024-02-08T05:58:01.990Z",
+            "updatedAt": "2024-02-08T05:58:01.990Z",
+            "__v": 0
+        }
+        ]
+      }
+    ]
+  }
+]
