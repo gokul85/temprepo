@@ -1,0 +1,247 @@
+credentials:
+  system:
+    domainCredentials:
+    - credentials:
+      - usernamePassword:
+          description: "Gitlab K8s Task Repo"
+          id: "4e433136-4173-411b-8aa3-8f24d01f489e"
+          password: "{AQAAABAAAAAg+qucCsZe48vxwNiyx/XCYxSFTt1vRPf+Q6J8sxdnC/68oAolljV0xw6i/IewTGfu}"
+          scope: GLOBAL
+          username: "gokulk"
+          usernameSecret: true
+      - string:
+          id: "aws-access-key-id"
+          scope: GLOBAL
+          secret: "{AQAAABAAAAAgfL6XnlSJWfGLnYMsYirMBV8NNc1FTMGk5xvrISIZiVNCX7fBhODDyfwAYS0cHR5H}"
+      - string:
+          id: "aws-secret-access-key"
+          scope: GLOBAL
+          secret: "{AQAAABAAAAAwfA4loVldAS07eCAkYLWhNpu6MJQa3RkLCt8rR6CvcztRiU1R68Hxj8l9skQRa3GQBZVECPAo4nG37dOBTTUgvQ==}"
+      - string:
+          id: "aws-session-token"
+          scope: GLOBAL
+          secret: "{AQAAABAAAAOQc5lUQl3CVDKhZc4ODvhCe2aP3m9apHce978MP9qVT9giEEGR3BXKkYatgJQIU2pyxtmvnfUUULyHV6chXmQ+bEInLligDQd4BV8PZw2hD5VJFhSwdlLcnT1WpFMyykqq0nOL56J0Qi8gKbCS6XDV1/CVA/YvxhysxTwCyCLSlsZv2BXJqBqYqYA2q3wn9RvXmwodSWOjOUIHYwCOz9gr7oHc6PlC65ah5rcFu9lI/FHSGQq7Orz5aRHaZ6SU7hnZLXuRc3NSswQSY7lVfgZ6YAyVHBRJ4IAilDY2Cxo/BDtvKHk9dbmYqm1DJS/MVdkcokAhDGqzRfAJiIE6+9aAl0yZYajbt5JnE35bHj0p0XJF4kw9Q6AYfShQtZa47sEuHQNLrwR3QivTDr8WmLLLrH0HNSTP+YHTB1LQW/yt+iESOY+SPeOacNRIaVKdHSZ0ZnRf75qxRAGMztXgYGnKKy0uJjI4PEg66Ch1Afew3TfN1yogUh33pDtARcw2dSPgCBY6OGKCW8j8L3DFfrwZTe3eHInQfdR4juTdXY9dLiHG1rWJ8VyiQ9HHlJx70wjowjsZnRBmZ0AFDOPeJBnnSz58VRHY2c1eQ+1LxfDm1lQNhvPzuu0O4TofOVRXyCIVOPGUZFpxR4stABgGODygnKfO4mdwTcKbiRLW+dsWeDf2khev7e7sQULayKmBVb00pu6W5AKat7C0l0fgtOn5RdrD7Vj3vV4sLAawAuSg97FdtHsce4trrAXbQQBZ0EDy300dIrGlpSqmH7vDXHDXKUsAR0oo9pxO55rVKa+Njjxtb+rHSDht7o+ALg8bE5RdRTJW1ZTGARCir38QHBpVv7TBHPAGGKruoRtjPbH0OU0w8OLXP5WSBFSQQ00ehZLhLGAqm0WM5qz5FpsxPCK1uunqGuASc5qwlRiFMk43+2LQuG3HxbyQmLmPgxz7fQ5gk9Tlk4vfbC5Qyd3n+TZJyPU1UdVBXZBcOuDZs0KMYYnioOpTKlLq2SI4Yjhy49SGny+x2ghIyaN2DbYA4IVkkLdvitxaY0u6bjeluzRoJSuq6DlCMtpu2owUtiRqT1FlX3GpgNvyWRs/0DQuid6b7Of5k6ryqDrpKs2MHKMNh3Y1ZCo1KyZ4hwO3Wkwc76IWnf9JlhI8hLFu8wbxx4pM4D48wqDNazw4IAchgdqKR3CitNyG6dmd8b2TEyZVmIF0kNuv46rd7t79yJerwSA0Sg==}"
+jenkins:
+  agentProtocols:
+  - "JNLP4-connect"
+  - "Ping"
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  clouds:
+  - kubernetes:
+      containerCap: 10
+      containerCapStr: "10"
+      jenkinsTunnel: "jenkins-agent.default.svc.cluster.local:50000"
+      jenkinsUrl: "http://jenkins.default.svc.cluster.local:8080"
+      name: "kubernetes"
+      namespace: "default"
+      podLabels:
+      - key: "jenkins/jenkins-jenkins-agent"
+        value: "true"
+      serverUrl: "https://kubernetes.default"
+      templates:
+      - containers:
+        - args: "^${computer.jnlpmac} ^${computer.name}"
+          envVars:
+          - envVar:
+              key: "JENKINS_URL"
+              value: "http://jenkins.default.svc.cluster.local:8080/"
+          image: "jenkins/inbound-agent:3273.v4cfe589b_fd83-1"
+          name: "jnlp"
+          resourceLimitCpu: "512m"
+          resourceLimitMemory: "512Mi"
+          resourceRequestCpu: "512m"
+          resourceRequestMemory: "512Mi"
+          workingDir: "/home/jenkins/agent"
+        id: "42bded8ec3f61c8c96801c1d85a30d56e84a8c53a8541dd374d93bae8f41f06f"
+        label: "jenkins-jenkins-agent"
+        name: "default"
+        namespace: "default"
+        nodeUsageMode: NORMAL
+        podRetention: "never"
+        serviceAccount: "default"
+        slaveConnectTimeout: 100
+        slaveConnectTimeoutStr: "100"
+        yamlMergeStrategy: "override"
+      - containers:
+        - args: "^${computer.jnlpmac} ^${computer.name}"
+          envVars:
+          - envVar:
+              key: "JENKINS_URL"
+              value: "http://jenkins.default.svc.cluster.local:8080/"
+          image: "jenkins/inbound-agent:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "jnlp"
+          resourceLimitCpu: "512m"
+          resourceLimitMemory: "512Mi"
+          resourceRequestCpu: "512m"
+          resourceRequestMemory: "512Mi"
+          workingDir: "/home/jenkins/agent"
+        - command: "cat"
+          image: "amazon/aws-cli:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "aws"
+          ttyEnabled: true
+          workingDir: "/home/jenkins/agent"
+        - command: "cat"
+          image: "docker:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "docker"
+          ttyEnabled: true
+          workingDir: "/home/jenkins/agent"
+        - command: "cat"
+          image: "gcr.io/cloud-builders/kubectl:latest"
+          livenessProbe:
+            failureThreshold: 0
+            initialDelaySeconds: 0
+            periodSeconds: 0
+            successThreshold: 0
+            timeoutSeconds: 0
+          name: "kubectl"
+          ttyEnabled: true
+          workingDir: "/home/jenkins/agent"
+        id: "fad25418-3a88-4944-8390-f594fb00f728"
+        label: "aws-docker-kubectl-agent"
+        name: "aws-docker-kubectl-agent"
+        namespace: "default"
+        serviceAccount: "jenkins"
+        volumes:
+        - hostPathVolume:
+            hostPath: "/var/run/docker.sock"
+            mountPath: "/var/run/docker.sock"
+            readOnly: false
+        yamlMergeStrategy: "override"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+  disableRememberMe: false
+  labelAtoms:
+  - name: "aws-docker-kubectl-agent"
+  - name: "built-in"
+  - name: "jenkins-jenkins-agent"
+  markupFormatter: "plainText"
+  mode: NORMAL
+  myViewsTabBar: "standard"
+  nodeMonitors:
+  - "architecture"
+  - "clock"
+  - diskSpace:
+      freeSpaceThreshold: "1GiB"
+      freeSpaceWarningThreshold: "2GiB"
+  - "swapSpace"
+  - tmpSpace:
+      freeSpaceThreshold: "1GiB"
+      freeSpaceWarningThreshold: "2GiB"
+  - "responseTime"
+  numExecutors: 0
+  primaryView:
+    all:
+      name: "all"
+  projectNamingStrategy: "standard"
+  quietPeriod: 5
+  remotingSecurity:
+    enabled: true
+  scmCheckoutRetryCount: 0
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+      - id: "admin"
+        name: "Jenkins Admin"
+        properties:
+        - "apiToken"
+        - "consoleUrlProvider"
+        - "mailer"
+        - "myView"
+        - preferredProvider:
+            providerId: "default"
+        - "timezone"
+        - "experimentalFlags"
+  slaveAgentPort: 50000
+  updateCenter:
+    sites:
+    - id: "default"
+      url: "https://updates.jenkins.io/update-center.json"
+  views:
+  - all:
+      name: "all"
+  viewsTabBar: "standard"
+globalCredentialsConfiguration:
+  configuration:
+    providerFilter: "none"
+    typeFilter: "none"
+appearance:
+  prism:
+    theme: PRISM
+security:
+  apiToken:
+    creationOfLegacyTokenEnabled: false
+    tokenGenerationOnCreationEnabled: false
+    usageStatisticsEnabled: true
+  cps:
+    hideSandbox: false
+  gitHooks:
+    allowedOnAgents: false
+    allowedOnController: false
+  gitHostKeyVerificationConfiguration:
+    sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
+  scriptApproval:
+    forceSandbox: false
+unclassified:
+  buildDiscarders:
+    configuredBuildDiscarders:
+    - "jobBuildDiscarder"
+  fingerprints:
+    fingerprintCleanupDisabled: false
+    storage: "file"
+  gitLabConnectionConfig:
+    connections:
+    - clientBuilderId: "autodetect"
+      connectionTimeout: 10
+      ignoreCertificateErrors: false
+      readTimeout: 10
+    useAuthenticatedEndpoint: true
+  junitTestResultStorage:
+    storage: "file"
+  location:
+    adminAddress: "address not configured yet <nobody@nowhere>"
+    url: "http://jenkins:8080/"
+  mailer:
+    charset: "UTF-8"
+    useSsl: false
+    useTls: false
+  pollSCM:
+    pollingThreadCount: 10
+  scmGit:
+    addGitTagAction: false
+    allowSecondFetch: false
+    createAccountBasedOnEmail: false
+    disableGitToolChooser: false
+    hideCredentials: false
+    showEntireCommitSummaryInChanges: false
+    useExistingAccountWithSameEmail: false
+tool:
+  git:
+    installations:
+    - home: "git"
+      name: "Default"
+  mavenGlobalConfig:
+    globalSettingsProvider: "standard"
+    settingsProvider: "standard"
